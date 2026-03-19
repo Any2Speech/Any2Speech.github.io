@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(145, 0.5, 0.5)">
+      <stop offset="0%" stop-color="#8c2f33"/>
+      <stop offset="100%" stop-color="#5a1d20"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="14" fill="url(#bg)"/>
+  <text x="24" y="25" text-anchor="middle" dominant-baseline="central"
+        fill="#fff8ef" font-family="system-ui, -apple-system, sans-serif" font-weight="900"
+        font-size="14.5" letter-spacing="1">ATS</text>
+</svg>

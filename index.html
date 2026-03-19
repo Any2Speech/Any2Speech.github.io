@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnytoSpeech | 从独白到舞台，做自己的声音导演</title>
+  <meta name="description" content="AnytoSpeech — Native Agentic 无边界长音频合成框架，端到端建模角色、情绪弧线与完整声学场景。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=LXGW+WenKai:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css?v=4">
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="AnytoSpeech 首页">
+        <span class="brand__mark">ATS</span>
+        <span class="brand__text">
+          <strong>AnytoSpeech</strong>
+          <small>从独白到舞台，做自己的声音导演</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="页面导航">
+        <a href="#abstract">摘要</a>
+        <a href="#contributions">贡献</a>
+        <a href="#demo">Demo</a>
+        <a href="#closing">不足</a>
+      </nav>
+
+    </header>
+
+    <main id="top">
+      <section class="hero-banner reveal">
+        <p class="eyebrow">Any2Speech — Borderless Long Audio Synthesis</p>
+        <h1>TTS的下一幕，不止于念台词。<br>给声音，一整座舞台。</h1>
+        <p class="hero-banner__lede">
+          Native Agentic 无边界长音频合成框架——端到端建模角色、情绪弧线与完整声学场景。
+        </p>
+        <div class="hero-banner__actions">
+          <a class="button button--primary" href="#abstract">阅读摘要</a>
+          <a class="button button--secondary" href="#demo">听节目单</a>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           Hero Demo — 先听为敬
+           ═══════════════════════════════════════════════════ -->
+      <section class="hero-demo reveal">
+        <div class="hero-demo__curtain" aria-hidden="true"></div>
+        <div class="hero-demo__stage" aria-hidden="true"></div>
+        <div class="hero-demo__inner">
+          <p class="hero-demo__eyebrow">Hear It First</p>
+          <h2 class="hero-demo__title">先听为敬</h2>
+          <p class="hero-demo__lede">
+            以下音频完全由 AI 端到端生成——角色、打断、观众笑声、情绪升级，全部一次合成，无后期拼接。
+          </p>
+          <div class="hero-demo__player">
+            <div class="demo-audio" data-audio-key="hero-demo" data-audio-title="罗永浩 × 豆包：锤子手机好不好"></div>
+          </div>
+          <a class="hero-demo__cta" href="#demo">
+            <span>听更多场景 Demo</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           Ch1: 摘要 — TTS 演进 + 技术贡献
+           ═══════════════════════════════════════════════════ -->
+      <section class="section reveal" id="abstract">
+        <div class="section-heading">
+          <p class="eyebrow">Abstract</p>
+          <h2>Whats Next for TTS?</h2>
+          <p>
+            从拼接合成到神经网络再到 Instruct TTS，合成语音的自然度与可控性持续提升——但这些能力大多停留在句子层面。长上下文的全局连贯，以及人声与声学场景的统一建模，仍有待探索。
+          </p>
+        </div>
+
+        <div class="release-grid">
+          <article class="release-card">
+            <p class="release-card__label">演进线索</p>
+            <h3>前几代 TTS 已经解决了什么</h3>
+            <ul>
+              <li><strong class="accent-wine">朗读：</strong>第一代 TTS 用拼接合成和参数合成解决了"机器第一次能说话"的问题。</li>
+              <li><strong class="accent-wine">独白：</strong>第二代端到端神经网络 TTS 把自然度和音质大幅提升，让结果真正变得"能听"。</li>
+              <li><strong class="accent-wine">对白：</strong>第三代大模型 TTS 和 Instruct TTS 开始支持用自然语言描述单句的情绪、语速和语气，也能合成多人对话长音频。
+              </li>
+              <li><strong class="accent-wine">舞台：</strong>但声学场景、情绪弧线和导演级控制仍然缺席，长上下文的全局连贯与完整声学场景的统一建模有待探索。</li>
+            </ul>
+          </article>
+
+          <article class="release-card">
+            <p class="release-card__label">TTS-Next</p>
+            <h3>我们认为下一代TTS至少应该具备三种能力</h3>
+            <ul>
+              <li><strong>长上下文连贯：</strong>在跨句、跨段乃至整段音频的尺度上保持情绪弧线、表达强度和角色状态的全局一致性。</li>
+              <li><strong>完整声学场景建模：</strong>将背景环境、声音事件和人声纳入统一的生成框架，而非分离建模。</li>
+              <li><strong>结构化语义接口：</strong>为前端 LLM 提供信息完备的宽带控制通道，使场景理解、角色设定和发音细节充分传递至合成引擎。</li>
+            </ul>
+          </article>
+        </div>
+
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           Ch1.5: Technical Contributions — 悬浮详情交互
+           ═══════════════════════════════════════════════════ -->
+      <section class="section reveal" id="contributions">
+        <div class="section-heading">
+          <p class="eyebrow">Technical Contributions</p>
+          <h2>What We Built and Why</h2>
+          <p>从数据到模型到系统架构，这是我们的一些探索与实践。</p>
+        </div>
+
+        <div class="contrib-hub" data-active="0">
+          <div class="contrib-grid">
+            <article class="contrib-card is-active" data-index="0">
+              <div class="contrib-card__head">
+                <span class="contrib-card__number">01</span>
+                <span class="contrib-card__tag">Data</span>
+              </div>
+              <h3>数据构建范式</h3>
+              <p>提出 <strong class="accent-wine">"Labeling over filtering &amp; cleaning"</strong> 数据理念，构建 <strong
+                  class="accent-wine">Global-Sentence-Token (GST)</strong> 自顶向下层次化标注 Schema，数据利用率提升至
+                90% 以上。
+              </p>
+            </article>
+            <article class="contrib-card" data-index="1">
+              <div class="contrib-card__head">
+                <span class="contrib-card__number">02</span>
+                <span class="contrib-card__tag">Model</span>
+              </div>
+              <h3>复杂声学建模策略</h3>
+              <p>验证了 CoT 和维度 Dropout 的有效性，显著提升模型在复杂场景下的指令遵循与表现力。</p>
+            </article>
+            <article class="contrib-card" data-index="2">
+              <div class="contrib-card__head">
+                <span class="contrib-card__number">03</span>
+                <span class="contrib-card__tag">System</span>
+              </div>
+              <h3>Native Agentic 架构</h3>
+              <p>GST 层次化标注体系充当 LLM Agent 与合成引擎之间的结构化语义接口，将窄带文本接口升级为信息完备的<strong class="accent-wine">宽带控制通道</strong>。</p>
+            </article>
+          </div>
+
+          <div class="contrib-detail">
+            <!-- ── Panel 01: 数据构建范式 ── -->
+            <div class="contrib-detail__panel is-active" data-panel="0">
+              <div class="contrib-detail__inner">
+                <h4>Labeling over Filtering & Cleaning + GST 层次化标注</h4>
+                <div class="contrib-detail__points">
+                  <div class="contrib-detail__point">
+                    <strong>Labeling over Filtering</strong>
+                    <p>摒弃传统 Pipeline 中以 DNSMOS / WER 粗暴过滤"脏数据"的做法——高情绪表现力语音与声学噪声强正相关，争论、打断、重叠恰恰是语音表达最丰富的来源。</p>
+                  </div>
+                  <div class="contrib-detail__point">
+                    <strong>Labeling over Cleaning</strong>
+                    <p>取消语音降噪，将背景音、环境噪声与人声统一建模。"脏"数据不是噪声，而是可描述、可控的声学表达维度——推理时通过指令描述即可精确控制声学环境。</p>
+                  </div>
+                  <div class="contrib-detail__point">
+                    <strong>GST 三层标注</strong>
+                    <p>Global（场景定位 / 说话人画像 / 情绪弧线）→ Sentence（语气 / 语速 / 意图 / 背景状态）→ Token（重音 / 多音字 / 儿化音 / 连读），三层维度均以自然语言
+                      Caption 表达，具备开放域描述能力。</p>
+                  </div>
+                  <div class="contrib-detail__point">
+                    <strong>关键收益</strong>
+                    <p>数据利用率 > 90%；同时包含"干净简单"与"脏且困难"数据的训练分布，有助于缓解推理幻觉。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contrib-showcase">
+                <div class="contrib-showcase__section">
+                  <p class="contrib-showcase__eyebrow">Script Room</p>
+                  <div class="script-room-layout">
+                    <article class="prompt-card">
+                      <p class="prompt-card__label">Annotated Prompt</p>
+                      <h3>输入不只是台词文本，而是完整的舞台指令</h3>
+                      <pre class="prompt-card__code"><code>[场景: 指挥中心, 灯光冷, 空气紧绷]
+[人物A: 压低声线, 克制愤怒, 句尾收紧]
+[人物B: 冷静反击, 稳步施压, 中段提速]
+[背景: 低噪环境声 + 偶发键盘声]
+[观众/旁人: 无]
+[节奏: 前慢后快, 第三轮冲突拉满]
+</code></pre>
+                    </article>
+                    <article class="annotation-card">
+                      <p class="annotation-card__label">Rich Controls</p>
+                      <h3>从一句话到一整段，哪些信息可以被导演</h3>
+                      <ul class="annotation-list">
+                        <li><strong>角色画像</strong>：年龄、身份、性格、音色倾向和立场。</li>
+                        <li><strong>说话意图</strong>：吐槽、施压、解释、安抚、收尾、旁白推进。</li>
+                        <li><strong>声学环境</strong>：笑声、掌声、脚步声、雨声、低保真广播感。</li>
+                        <li><strong>细节修辞</strong>：重音、多音字、儿化音、拖音和语气词长度。</li>
+                      </ul>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="contrib-showcase__section">
+                  <p class="contrib-showcase__eyebrow">Control Console</p>
+                  <div class="control-timeline">
+                    <article class="control-node">
+                      <div class="control-node__index">
+                        <span class="control-node__number">01</span>
+                        <span class="control-node__name">Global</span>
+                      </div>
+                      <div class="control-node__body">
+                        <p class="control-node__label">Global Level</p>
+                        <h3>全局场景与角色定义</h3>
+                        <p>定义整段音频的场景定位、说话人画像、全局情绪基调、背景声学环境与关键声音事件。</p>
+                        <ul>
+                          <li>播客、相声、广播剧等整体节目感</li>
+                          <li>说话人关系和全程情绪走向</li>
+                          <li>笑声、掌声、环境声等空间元素</li>
+                        </ul>
+                      </div>
+                    </article>
+                    <article class="control-node">
+                      <div class="control-node__index">
+                        <span class="control-node__number">02</span>
+                        <span class="control-node__name">Sentence</span>
+                      </div>
+                      <div class="control-node__body">
+                        <p class="control-node__label">Sentence Level</p>
+                        <h3>逐句表达策略控制</h3>
+                        <p>控制每句话的语气、语调、语速、音量与说话意图，以及句间的状态切换与情绪衔接。</p>
+                        <ul>
+                          <li>上一句铺垫，下一句爆发</li>
+                          <li>角色语气的连续变化和停顿策略</li>
+                          <li>同一句话在不同语境中的表达差异</li>
+                        </ul>
+                      </div>
+                    </article>
+                    <article class="control-node">
+                      <div class="control-node__index">
+                        <span class="control-node__number">03</span>
+                        <span class="control-node__name">Token</span>
+                      </div>
+                      <div class="control-node__body">
+                        <p class="control-node__label">Token Level</p>
+                        <h3>音素级发音精调</h3>
+                        <p>在音素颗粒度上处理重音标注、多音字消歧、儿化音、连读变调与语气词拖音。</p>
+                        <ul>
+                          <li>重点词强调与尾音收束方式</li>
+                          <li>多音字消歧与口语化发音</li>
+                          <li>语气词拖音和现场感微调</li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Panel 02: 复杂声学建模策略 ── -->
+            <div class="contrib-detail__panel" data-panel="1">
+              <div class="contrib-detail__inner">
+                <h4>CoT 思维链 + 维度 Dropout</h4>
+                <div class="contrib-detail__points">
+                  <div class="contrib-detail__point">
+                    <strong>先理解，后合成</strong>
+                    <p>传统 TTS 将理解和发声合并为一步。我们将其拆为双阶段：模型先基于全局指令进行深度推理——逐句输出语气、语调、语速、意图和发音规划——再以推理结果为蓝图生成音频。</p>
+                  </div>
+                  <div class="contrib-detail__point">
+                    <strong>Instruct / Think 双路拆分</strong>
+                    <p>Instruct 路承载用户提供的硬约束（场景元数据、说话人身份、声学环境评分）；Think 路承载模型自主推理的表达规划（情绪走向、逐句语气意图、音素级发音标注）。</p>
+                  </div>
+                  <div class="contrib-detail__point">
+                    <strong>维度 Dropout</strong>
+                    <p>训练时随机丢弃 Think 中的部分维度标注，迫使模型不过度依赖单一维度。</p>
+                  </div>
+                  <div class="contrib-detail__point">
+                    <strong>双重收益</strong>
+                    <p>其一，提升已有维度的指令遵循精度；其二，推理时用户无需填写所有控制字段，仅指定关心的维度即可获得合理结果。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contrib-showcase">
+                <div class="contrib-showcase__section">
+                  <p class="contrib-showcase__eyebrow">Inference Pipeline</p>
+                  <div class="cot-pipeline">
+                    <div class="cot-pipeline__inputs">
+                      <article class="cot-path cot-path--instruct">
+                        <p class="cot-path__label">Instruct 路</p>
+                        <h3>用户硬约束</h3>
+                        <ul class="cot-path__list">
+                          <li>场景元数据（节目格式、风格、话题）</li>
+                          <li>说话人身份（性别、年龄、音色特质）</li>
+                          <li>声学环境量化评分</li>
+                        </ul>
+                      </article>
+                      <article class="cot-path cot-path--think">
+                        <p class="cot-path__label">Think 路</p>
+                        <h3>模型自主推理</h3>
+                        <ul class="cot-path__list">
+                          <li>全局情绪走向与弧线</li>
+                          <li>逐句语气、意图、语速、音量</li>
+                          <li>音素级发音标注（重音、连读、变调）</li>
+                        </ul>
+                      </article>
+                    </div>
+                    <div class="cot-pipeline__merge">
+                      <span class="cot-pipeline__merge-line"></span>
+                      <span class="cot-pipeline__merge-label">CoT 推理合并</span>
+                      <span class="cot-pipeline__merge-line"></span>
+                    </div>
+                    <div class="cot-pipeline__output">
+                      <div class="arch-engine-steps">
+                        <div class="arch-engine-step">
+                          <span class="arch-engine-step__icon">💭</span>
+                          <strong>理解语境</strong>
+                          <span>深度推理 · 规划表达</span>
+                        </div>
+                        <div class="arch-engine-sep">→</div>
+                        <div class="arch-engine-step">
+                          <span class="arch-engine-step__icon">🎭</span>
+                          <strong>韵律决策</strong>
+                          <span>逐句语气 · 意图 · 发音</span>
+                        </div>
+                        <div class="arch-engine-sep">→</div>
+                        <div class="arch-engine-step">
+                          <span class="arch-engine-step__icon">🎵</span>
+                          <strong>音频生成</strong>
+                          <span>连续 Tokenizer · 长音频</span>
+                        </div>
+                      </div>
+                      <div class="arch-engine-note">
+                        维度 Dropout：训练时随机遮蔽部分维度，提升指令遵循精度与用户输入容忍度
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Panel 03: Native Agentic 架构 ── -->
+            <div class="contrib-detail__panel" data-panel="2">
+              <div class="contrib-detail__inner">
+                <h4>从 Text2Speech 到 Any2Speech</h4>
+                <div class="contrib-detail__points">
+                  <div class="contrib-detail__point">
+                    <strong>信息带宽跃迁</strong>
+                    <p>传统 TTS 文本接口是窄带的——语义空间仅覆盖词汇内容，LLM 的场景级理解在传递中被大幅压缩。GST 层次化标注将接口扩展为同时覆盖场景、画像、情绪、声学环境、交互动态的宽带控制通道。
+                    </p>
+                  </div>
+                  <div class="contrib-detail__point">
+                    <strong>分层控制协议栈</strong>
+                    <p>Global = 会话 / 应用层，Sentence = 传输层，Token = 物理层。三层结构为 LLM 定义了结构化调用参数规范 (Structured Calling
+                      Schema)，用户与 Agent 均无需了解合成引擎内部机制。</p>
+                  </div>
+                  <div class="contrib-detail__point">
+                    <strong>上下文效率优势</strong>
+                    <p>相比端到端方案中历史上下文的"无意识有损压缩"，Agent 架构通过 LLM 的语义蒸馏将对话历史压缩为结构化指令——有意识的、Schema 引导的语义压缩，兼顾跨轮次连贯与计算效率。</p>
+                  </div>
+                  <div class="contrib-detail__point">
+                    <strong>模态无关扩展</strong>
+                    <p>文本作为跨模态桥梁，任意模态输入（文本、视频、网页、音频）均可被 LLM 转化为符合 GST 结构的生成指令，实现 Any2Speech 的范式跃迁。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contrib-showcase">
+                <div class="contrib-showcase__section">
+                  <p class="contrib-showcase__eyebrow">System Architecture</p>
+                  <div class="arch-flow">
+                    <article class="arch-node arch-node--input">
+                      <p class="arch-node__label">Any Input</p>
+                      <h3>任意模态输入</h3>
+                      <div class="arch-node__tags">
+                        <span>文本</span>
+                        <span>视频</span>
+                        <span>网页</span>
+                        <span>音频</span>
+                        <span>剧本</span>
+                      </div>
+                    </article>
+                    <div class="arch-connector">
+                      <span class="arch-connector__line"></span>
+                      <span class="arch-connector__arrow">▼</span>
+                    </div>
+                    <article class="arch-node arch-node--llm">
+                      <p class="arch-node__label">Frontend</p>
+                      <h3>LLM Agent</h3>
+                      <p class="arch-node__desc">多模态理解 → 语义重构 → 结构化指令生成</p>
+                      <div class="arch-node__pipeline">
+                        <span>场景分析</span>
+                        <span>→</span>
+                        <span>角色规划</span>
+                        <span>→</span>
+                        <span>GST 指令映射</span>
+                      </div>
+                    </article>
+                    <div class="arch-connector">
+                      <span class="arch-connector__line"></span>
+                      <span class="arch-connector__arrow">▼</span>
+                    </div>
+                    <article class="arch-node arch-node--gst">
+                      <p class="arch-node__label">Structured Semantic Interface</p>
+                      <h3>GST 分层控制协议栈</h3>
+                      <div class="arch-stack">
+                        <div class="arch-layer arch-layer--global">
+                          <span class="arch-layer__name">Global</span>
+                          <span class="arch-layer__role">会话 / 应用层</span>
+                          <span class="arch-layer__desc">场景定位 · 说话人画像 · 情绪弧线 · 声学环境</span>
+                        </div>
+                        <div class="arch-layer arch-layer--sentence">
+                          <span class="arch-layer__name">Sentence</span>
+                          <span class="arch-layer__role">传输层</span>
+                          <span class="arch-layer__desc">语气 · 语调 · 语速 · 音量 · 说话意图 · 背景状态</span>
+                        </div>
+                        <div class="arch-layer arch-layer--token">
+                          <span class="arch-layer__name">Token</span>
+                          <span class="arch-layer__role">物理层</span>
+                          <span class="arch-layer__desc">重音 · 多音字 · 连读 · 儿化音 · 语气词拖音</span>
+                        </div>
+                      </div>
+                    </article>
+                    <div class="arch-connector">
+                      <span class="arch-connector__line"></span>
+                      <span class="arch-connector__arrow">▼</span>
+                    </div>
+                    <article class="arch-node arch-node--engine">
+                      <p class="arch-node__label">Backend</p>
+                      <h3>合成引擎</h3>
+                      <div class="arch-engine-steps">
+                        <div class="arch-engine-step">
+                          <span class="arch-engine-step__icon">💭</span>
+                          <strong>CoT 推理</strong>
+                          <span>理解语境 · 规划表达</span>
+                        </div>
+                        <div class="arch-engine-sep">→</div>
+                        <div class="arch-engine-step">
+                          <span class="arch-engine-step__icon">🎭</span>
+                          <strong>韵律决策</strong>
+                          <span>逐句语气 · 意图 · 发音</span>
+                        </div>
+                        <div class="arch-engine-sep">→</div>
+                        <div class="arch-engine-step">
+                          <span class="arch-engine-step__icon">🎵</span>
+                          <strong>音频生成</strong>
+                          <span>连续 Tokenizer · 长音频</span>
+                        </div>
+                      </div>
+                      <div class="arch-engine-note">
+                        维度 Dropout：训练时随机遮蔽部分维度，提升指令遵循精度与用户输入容忍度
+                      </div>
+                    </article>
+                    <div class="arch-connector">
+                      <span class="arch-connector__line"></span>
+                      <span class="arch-connector__arrow">▼</span>
+                    </div>
+                    <article class="arch-node arch-node--output">
+                      <p class="arch-node__label">Output</p>
+                      <h3>无边界长音频</h3>
+                      <div class="arch-node__tags">
+                        <span>长上下文连贯</span>
+                        <span>多人交互</span>
+                        <span>完整声学场景</span>
+                        <span>情绪弧线</span>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="arch-bandwidth">
+                    <article class="arch-bw-card arch-bw-card--narrow">
+                      <p class="arch-bw-card__label">传统 TTS</p>
+                      <h3>窄带文本接口</h3>
+                      <p>仅覆盖词汇内容，至多附加说话人标识或有限风格标签。前端 LLM 的场景级理解在传递过程中被大幅压缩。</p>
+                      <div class="arch-bw-bar arch-bw-bar--narrow"></div>
+                    </article>
+                    <article class="arch-bw-card arch-bw-card--wide">
+                      <p class="arch-bw-card__label">AnytoSpeech</p>
+                      <h3>宽带控制通道</h3>
+                      <p>同时覆盖场景、画像、情绪、声学环境、交互动态等全部生成维度。LLM 的多维语义理解充分传递至合成引擎。</p>
+                      <div class="arch-bw-bar arch-bw-bar--wide"></div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contrib-cta">
+          <p class="contrib-cta__hint">鼠标悬浮不同卡片，切换详细设计与演示</p>
+          <a class="button button--secondary contrib-cta__btn" href="#contributions">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            继续浏览探索与实践
+          </a>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           Demo — 场景展示
+           ═══════════════════════════════════════════════════ -->
+      <section class="section reveal" id="demo">
+        <div class="section-heading">
+          <p class="eyebrow">Demo Showcase</p>
+          <h2>有戏、有灵魂、有 Taste</h2>
+          <p>
+            当合成语音止步于把台词念好，传统 TTS 已足够胜任。AnytoSpeech
+            的价值在于那些需要人物感、场景感、冲突张力与完整节目包装的内容——影视复刻验证冲突与关系，广播剧考验叙事推进，方言脱口秀和风格节目则指向人物质感与空间氛围。
+          </p>
+        </div>
+
+        <!-- Scene Group 1: 热梗模仿 -->
+        <div class="program-layout">
+          <aside class="program-sidebar">
+            <p class="program-sidebar__label">Proof Point</p>
+            <h3>互动节奏与传播感</h3>
+            <ol class="program-sidebar__list">
+              <li>插话、附和、Overlap 和观众反应在时间轴上同步编排，不是后期拼接。</li>
+              <li>一人主说、另一人接话或起哄时，节奏自然成立，笑声和掌声成为叙事推进的一部分。</li>
+              <li>强情绪瞬间的爆发力和收束感，让短片段也具备传播力。</li>
+            </ol>
+          </aside>
+          <div class="program-grid">
+            <article class="program-card">
+              <header>
+                <p class="program-card__type">传播场</p>
+                <h3>热梗模仿与高情绪切片</h3>
+              </header>
+              <div class="program-card__tags">
+                <span>传播感</span>
+                <span>强情绪</span>
+              </div>
+              <div class="demo-audio" data-audio-key="meme-improv" data-audio-title="热梗模仿 Demo"
+                data-show-feature="false"></div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Scene Group 2: 影视复刻 -->
+        <div class="program-layout">
+          <aside class="program-sidebar">
+            <p class="program-sidebar__label">Proof Point</p>
+            <h3>多人关系与冲突张力</h3>
+            <ol class="program-sidebar__list">
+              <li>真正的多人对话不只是轮流说话——打断、抢话、对峙和情绪压迫需要在时间轴上自然成立。</li>
+              <li>角色有立场、有音色倾向、有情绪弧线，对峙中的升级感通过声学表现层层递进。</li>
+              <li>背景音乐、环境声与人声端到端联合建模，整段听感接近完整影视片段而非干声拼接。</li>
+            </ol>
+          </aside>
+          <div class="program-grid">
+            <article class="program-card">
+              <header>
+                <p class="program-card__type">戏剧场</p>
+                <h3>影视复刻与长冲突场面</h3>
+              </header>
+              <div class="program-card__tags">
+                <span>角色冲突</span>
+                <span>重叠说话</span>
+                <span>环境氛围</span>
+              </div>
+              <div class="demo-audio" data-audio-key="film-remake" data-audio-title="影视复刻 Demo"
+                data-show-feature="false"></div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Scene Group 3: 广播剧 -->
+        <div class="program-layout">
+          <aside class="program-sidebar">
+            <p class="program-sidebar__label">Proof Point</p>
+            <h3>情绪弧线与叙事推进</h3>
+            <ol class="program-sidebar__list">
+              <li>旁白、人物和环境音共同构成完整听觉叙事，不是三条轨道的机械叠加。</li>
+              <li>情绪不止在一句话上成立，而是跨段落层层递进——铺垫、转折、爆发、收束。</li>
+              <li>慢弧线和双人关系的微妙变化，靠语气衔接和停顿策略传递。</li>
+            </ol>
+          </aside>
+          <div class="program-grid">
+            <article class="program-card">
+              <header>
+                <p class="program-card__type">叙事场</p>
+                <h3>广播剧与人物关系线</h3>
+              </header>
+              <div class="program-card__tags">
+                <span>旁白</span>
+                <span>人物关系</span>
+              </div>
+              <div class="demo-audio" data-audio-key="drama-scene" data-audio-title="广播剧 Demo"
+                data-show-feature="false"></div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Scene Group 4: 配音/vlog -->
+        <div class="program-layout">
+          <aside class="program-sidebar">
+            <p class="program-sidebar__label">Proof Point</p>
+            <h3>氛围塑造与内容包装</h3>
+            <ol class="program-sidebar__list">
+              <li>弱剧情、强氛围的内容，靠叙述者气质和表述口吻获得表达密度。</li>
+              <li>音色、语速和气息构成整段内容的风格基调，而非逐句独立合成。</li>
+              <li>从配音到成片，叙述者人格与内容包装保持一致性。</li>
+            </ol>
+          </aside>
+          <div class="program-grid">
+            <article class="program-card">
+              <header>
+                <p class="program-card__type">创作场</p>
+                <h3>vlog 配音与风格化短视频</h3>
+              </header>
+              <div class="program-card__tags">
+                <span>旁白配音</span>
+                <span>氛围感</span>
+              </div>
+              <div class="demo-audio" data-audio-key="vlog-voiceover" data-audio-title="配音 Demo"
+                data-show-feature="false"></div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Scene Group 5: 方言脱口秀 -->
+        <div class="program-layout">
+          <aside class="program-sidebar">
+            <p class="program-sidebar__label">Proof Point</p>
+            <h3>人物感与现场互动</h3>
+            <ol class="program-sidebar__list">
+              <li>方言不只是口音替换，而是语气词、拖音、断句节奏和人格气质的整体呈现。</li>
+              <li>"有人在场"的现场感——观众笑声、起哄和即时反应让表演不是独角戏。</li>
+              <li>强人格内容的核心是让听众觉得"这是一个人在说话"，而不是在播报。</li>
+            </ol>
+          </aside>
+          <div class="program-grid">
+            <article class="program-card">
+              <header>
+                <p class="program-card__type">现场场</p>
+                <h3>方言脱口秀与互动感内容</h3>
+              </header>
+              <div class="program-card__tags">
+                <span>方言</span>
+                <span>现场互动</span>
+              </div>
+              <div class="demo-audio" data-audio-key="dialect-comedy" data-audio-title="方言脱口秀 Demo"
+                data-show-feature="false"></div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Scene Group 6: 特殊氛围 -->
+        <div class="program-layout">
+          <aside class="program-sidebar">
+            <p class="program-sidebar__label">Proof Point</p>
+            <h3>声学空间与泛化能力</h3>
+            <ol class="program-sidebar__list">
+              <li>同一套引擎可以生成截然不同的声学质感——磁带损坏感、旧广播感、沉静冥想、枪战音效、古典钢琴。</li>
+              <li>训练数据以人声为核心，纯音效与纯音乐生成能力完全来自对人声片段附带背景音的泛化。</li>
+              <li>从趣味跨设定演绎到无人声的纯声学场景，统一框架均可覆盖。</li>
+            </ol>
+          </aside>
+          <div class="program-grid">
+            <article class="program-card">
+              <header>
+                <p class="program-card__type">风格场</p>
+                <h3>风格化音频与泛化涌现</h3>
+              </header>
+              <div class="program-card__tags">
+                <span>音质风格</span>
+                <span>纯音效</span>
+                <span>纯音乐</span>
+              </div>
+              <div class="demo-audio" data-audio-key="special-format" data-audio-title="特殊氛围 Demo"
+                data-show-feature="false"></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="closing-note" id="closing">
+          <p class="source-panel__label">Closing Note</p>
+          <h3>Any2Speech 是我们对下一代 TTS 的一次探索与实践</h3>
+          <div class="closing-note__body">
+            <p>这是一个 prototype——它能工作，但它还粗糙。当前训练数据几乎全部以人声为核心，并未包含纯音效或纯音乐的专项数据；我们推测，系统展现出的纯音效与纯音乐生成能力，完全来自对人声片段背景音的<strong
+                class="accent-wine">泛化</strong>。此外，音色控制仅依赖自然语言描述，相同描述在不同次合成中可能产生音色漂移，尚无法精确复现特定说话人的声音。<span
+                style="font-size: 0.85em; opacity: 0.6;">（带语音 prompt 的版本正在训练中）</span></p>
+            <p>尽管如此，我们欣喜地看到了它的 scaling 潜力。那些传统 TTS 流水线会丢弃的"脏"数据——背景嘈杂、多人重叠、录音质量参差——在 <strong
+                class="accent-wine">Labeling over Filtering & Cleaning</strong> 策略下，恰恰成为系统 scaling
+              的燃料。模型从中学会了纯环境建模、纯音效生成等意料之外的能力；更关键的是，干净与嘈杂、简单与复杂并存但有区分的数据分布有助于缓解模型幻觉。我们有理由相信，这种数据多样性在强化学习阶段将提供更具区分度的
+              reward
+              signal，进一步释放模型潜力。</p>
+
+          </div>
+          <div class="closing-note__cta">
+            <p>说了这么多，不如亲自试试。</p>
+            <a href="https://miplus-tts-public.ai.xiaomi.com/v1/audio/ui/" target="_blank" rel="noopener"
+              class="cta-btn">
+              打开 Any2Speech
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>AnytoSpeech showcase site.</p>
+      <a href="#top">Back to Top</a>
+    </footer>
+  </div>
+
+  <script src="script.js?v=2"></script>
+</body>
+
+</html>
